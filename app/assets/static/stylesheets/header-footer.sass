@@ -1,0 +1,124 @@
+=triangleIcon($color: #878787, $width: 4px, $margin-left: null)
+  border-top: $width solid $color
+  border-left: $width solid rgba(0, 0, 0, 0)
+  border-right: $width solid rgba(0, 0, 0, 0)
+  transition-duration: .5s
+  margin-left: $margin-left
+.hoverTriangleIcon
+  -webkit-transform: rotate(-180deg)
+  transform: rotate(-180deg)
+
+header
+  border-bottom: 2px solid #eee
+  background: $white
+
+$cart-icon-width: 14px
+.topWrap
+  padding: 9px 0
+  ul
+    float: right
+    >li
+      display: inline-block
+      margin-left: 18px
+      a
+        +text(12px, 18px, $gray-33)
+        display: block
+        &:hover
+          color: $green
+      &:first-child
+        margin-left: 0
+  .glyphicon-shopping-cart
+    position: relative
+    font-size: 18px
+    span
+      position: absolute
+      background: $yellow
+      border: 1px solid $yellow
+      width: $cart-icon-width
+      height: $cart-icon-width
+      +text(8px, $cart-icon-width - 2)
+      text-align: center
+      top: -5px
+      right: -5px
+      border-radius: 50%
+
+$logo-width: 255px
+.middleWrap
+  h1
+    width: $logo-width
+    a
+      display: block
+  .fromWrap
+    width: calc(100% - #{$logo-width + 30px})
+    form
+      .form-control
+        height: 44px
+        border-width: 2px
+        border-right: none
+      .input-group-addon
+        padding: 6px 35px
+        background: $yellow
+        +text(18px, null, #383731, 300)
+        border-width: 2px
+        border-color: $yellow
+        cursor: pointer
+
+.mainLinkList
+  float: right
+  position: relative
+  .menuIcon
+    +triangleIcon($green, 6px, 6px)
+  .subLinkList
+    display: none
+    position: absolute
+    left: 0
+    right: 0
+    background: $white
+    padding: 20px
+  >li
+    display: inline-block
+    margin-left: 19px
+    &:first-child
+      margin-left: 0
+    >a
+      +text(14px, 20px, $green, $medium)
+      text-transform: uppercase
+      display: block
+      padding: 5px 0 10px
+      span, i
+        display: inline-block
+        vertical-align: middle
+    &:hover
+      .subLinkList
+        display: block
+      .menuIcon
+        @extend .hoverTriangleIcon
+
+@media (max-width: $tablet)
+  .bottomWrap, .fromWrap
+    display: none
+  .showFromWrap
+    display: block
+  .mobileWrap
+    a
+      +text(20px, 40px)
+      width: 40px
+      display: inline-block
+    .glyphicon-menu-hamburger
+      margin-left: 30px
+  .middleWrap
+    padding: 20px 0
+    .fromWrap
+      width: 100%
+      padding-top: 20px
+
+@media (max-width: $mobile)
+  .middleWrap
+    h1
+      width: 170px
+  .mobileWrap
+    a
+      line-height: 34px
+    .glyphicon-menu-hamburger
+      margin-left: 15px
+

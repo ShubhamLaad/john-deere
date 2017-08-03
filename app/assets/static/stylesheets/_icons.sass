@@ -1,0 +1,13 @@
+/*icon sprite */
+
+[class^="icon-"], [class*=" icon-"]
+  background-image: url("../../images/sprite.png")
+  background-repeat: no-repeat
+
+.leaflet-control-zoom.leaflet-bar.leaflet-control a, .leaflet-popup-close-button
+  background-size: inherit
+
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2 / 1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx)
+  [class^="icon-"], [class*=" icon-"]
+    background-image: url("../../images/sprite@2x.png")
+    background-size: 120px auto

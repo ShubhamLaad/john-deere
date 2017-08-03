@@ -1,0 +1,140 @@
+@import 'base'
+
+.refineByWrap, .productResultWrap
+  background: $white
+  float: left
+  width: 234px
+  border: 1px solid #ddd
+  h3
+    +text(14px, 20px, $black)
+  h4
+    +text(12px, 18px, $black)
+
+.refineByWrap
+  h3, >ul >li
+    padding-left: 15px
+    padding-right: 15px
+    border-bottom: 1px solid #ddd
+  h3
+    +vPadding(10px, 10px)
+    border-bottom: 1px solid #ddd
+  h4
+    +vPadding(8px, 8px)
+  .moreText
+    font-weight: $bold
+    margin-bottom: 10px
+    display: inline-block
+  .refineByList
+    margin-bottom: 15px
+  .glyphicon-remove
+    display: none
+    font-size: 20px
+
+.productResultWrap
+  float: left
+  width: 664px
+  margin-left: 12px
+  .headingWrap
+    padding: 16px 19px
+    h3
+      margin-bottom: 8px
+    .showingCount
+      +text(null, 20px, $gray-87)
+  .sortByWrap
+    +text(14px, 16px, $gray-66)
+    select
+      border: none
+      cursor: pointer
+    label
+      font-weight: $medium
+      margin-right: 20px
+
+.productList
+  color: #666
+  font-size: 11px
+  >li
+    padding: 20px
+    border-top: 1px solid #ddd
+  .productImageWrap
+    width: 115px
+    .imageWrap
+      margin-bottom: 12px
+    .viewDetails a
+      text-decoration: underline
+      font-weight: $medium
+
+$productDataList-width: 120px
+.detailsHead
+  margin-bottom: 12px
+  line-height: 18px
+  h4
+    font-size: 14px
+  div
+    color: $gray-87
+.productDetails
+  width: 370px
+  padding: 0 15px
+  .productDataList
+    border: 1px solid #fafafa
+    li
+      line-height: 20px
+      border-top: 1px solid #fafafa
+      a
+        text-decoration: underline
+      &:first-child
+        border-top: none
+      div
+        &:first-child
+          width: $productDataList-width
+          padding: 0 9px
+        &:last-child
+          margin-left: $productDataList-width
+
+.stockOrderWrap
+  width: 116px
+  margin-top: 30px
+  .price
+    font-size: 12px
+    margin-bottom: 8px
+    span
+      +text(18px, 20px, $black, $medium)
+  p
+    +text(12px, 16px, $black, $medium)
+    margin-bottom: 10px
+  .primeBtn
+    margin-bottom: 12px
+  a
+    display: block
+    text-align: center
+
+@media (max-width: $tablet)
+  .refineByBtn
+    margin-bottom: 20px
+  .refineByWrap
+    display: none
+    position: fixed
+    top: 0
+    left: 0
+    bottom: 0
+    width: 100%
+    overflow-y: auto
+    &.showRefineByWrap
+      display: block
+      .glyphicon-remove
+        display: block
+  .productResultWrap
+    float: none
+    margin: auto
+
+@media (max-width: $mobile)
+  .refineByBtn
+    width: 100%
+  .productResultWrap
+    width: 100%
+  .productResultWrap
+    .headingWrap
+      .showingCount, .sortByWrap
+        width: 100%
+  .stockOrderWrap
+    float: right !important
+
