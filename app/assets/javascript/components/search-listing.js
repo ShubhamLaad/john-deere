@@ -1,4 +1,4 @@
-import refineByJSON from './search-listing-json.js';
+import SearchListJSON from './search-listing-json.js';
 import ClassSet from '../mixins/class-set.js';
 
 class SearchListing extends React.Component {
@@ -6,7 +6,8 @@ class SearchListing extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            refineBy: [],
+            filterList: [],
+            productList: [],
             showRefineBy: false,
         }
         this._toggleRefineBy = this._toggleRefineBy.bind(this);
@@ -14,7 +15,8 @@ class SearchListing extends React.Component {
 
     componentDidMount() {
         this.setState({
-            refineBy: refineByJSON
+            filterList: SearchListJSON.filterList,
+            productList: SearchListJSON.productList
         });
     }
 
@@ -26,7 +28,7 @@ class SearchListing extends React.Component {
 
     _getRefineList() {
         return(<ul>{
-            _.map(this.state.refineBy, (filters, key) => {
+            _.map(this.state.filterList, (filters, key) => {
                 return(
                     <li key={key}>
                         <h4 className="text-uppercase">{filters.title}</h4>
@@ -34,8 +36,8 @@ class SearchListing extends React.Component {
                             _.map(filters.filter, (filter, key) => {
                                 return(
                                     <li className="checkBoxWrap" key={key}>
-                                        <input type="checkbox" id="test1" />
-                                        <label htmlFor="test1">
+                                        <input type="checkbox" id={`${filters.title}-${key}`} />
+                                        <label htmlFor={`${filters.title}-${key}`}>
                                             <span className="checkboxIcon"></span>
                                             <span className="name">{filter}</span>
                                             <span className="number">(1)</span>
@@ -51,6 +53,62 @@ class SearchListing extends React.Component {
                 )
             })
         }</ul>)
+    }
+
+    _getProductList() {
+        return(<ul className="productList">{
+            _.map(this.state.productList, (product, key) => {
+                return(
+                    <li className="clearfix" key={key}>
+                        <div className="detailsHead clearfix visible-xs">
+                            <h4 className="pull-left">{product.name}</h4>
+                            <div className="pull-right">{product.id}</div>
+                        </div>
+                        <div className="productImageWrap pull-left">
+                            <div className="imageWrap">
+                                <img src={`/assets/image/product${key+1}.jpg`} className="img-responsive" alt=""/>
+                            </div>
+                            <div className="viewDetails">
+                                {product.parts} Parts&nbsp;
+                                <a href="javascript:void(0)">View Details</a>
+                            </div>
+                        </div>
+                        <div className="productDetails pull-left hidden-xs">
+                            <div className="detailsHead clearfix">
+                                <h4 className="pull-left">{product.name}</h4>
+                                <div className="pull-right">{product.id}</div>
+                            </div>
+                            <ul className="productDataList">
+                                <li className="clearfix">
+                                    <div className="pull-left">Equipment Category</div>
+                                    <div>{product.equipmentCategory}</div>
+                                </li>
+                                <li className="clearfix">
+                                    <div className="pull-left">Application</div>
+                                    <div><a href="javascript:void(0)">{product.application}</a></div>
+                                </li>
+                                <li className="clearfix">
+                                    <div className="pull-left">Compatible with</div>
+                                    <div>{product.compatible}</div>
+                                </li>
+                                <li className="clearfix">
+                                    <div className="pull-left">Overall Weight</div>
+                                    <div>{product.overallWeight} KG</div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div className="pull-left stockOrderWrap">
+                            <div className="price">
+                                <span>&#8377;{product.price}</span>&nbsp; Per Unit
+                            </div>
+                            <p>{product.available} Units are available</p>
+                            <button className="btn primeBtn">STOCK ORDER</button>
+                            <a href="javascript:void(0)">ADD TO WISHLIST</a>
+                        </div>
+                    </li>
+                )}
+            )}
+        </ul>)
     }
 
     render () {
@@ -91,55 +149,7 @@ class SearchListing extends React.Component {
                                 </div>
                             </div>
                         </div>
-                        <ul className="productList">
-                            <li className="clearfix">
-                                <div className="detailsHead clearfix visible-xs">
-                                    <h4 className="pull-left">Front Axle & Hub Asy</h4>
-                                    <div className="pull-right">SJ10505</div>
-                                </div>
-                                <div className="productImageWrap pull-left">
-                                    <div className="imageWrap">
-                                        <img src="/assets/image/product1.jpg" className="img-responsive" alt=""/>
-                                    </div>
-                                    <div className="viewDetails">
-                                        33 Parts&nbsp;
-                                        <a href="javascript:void(0)">View Details</a>
-                                    </div>
-                                </div>
-                                <div className="productDetails pull-left hidden-xs">
-                                    <div className="detailsHead clearfix">
-                                        <h4 className="pull-left">Front Axle & Hub Asy</h4>
-                                        <div className="pull-right">SJ10505</div>
-                                    </div>
-                                    <ul className="productDataList">
-                                        <li className="clearfix">
-                                            <div className="pull-left">Equipment Category</div>
-                                            <div>Front Axle / Steering</div>
-                                        </li>
-                                        <li className="clearfix">
-                                            <div className="pull-left">Application</div>
-                                            <div><a href="javascript:void(0)">ETN10775</a></div>
-                                        </li>
-                                        <li className="clearfix">
-                                            <div className="pull-left">Compatible with</div>
-                                            <div>4529 - 5036C, 4632 - 5041C Tractor (IE)</div>
-                                        </li>
-                                        <li className="clearfix">
-                                            <div className="pull-left">Overall Weight</div>
-                                            <div>28 KG</div>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div className="pull-left stockOrderWrap">
-                                    <div className="price">
-                                        <span>&#8377;1,800</span>&nbsp; Per Unit
-                                    </div>
-                                    <p>15 Units are available</p>
-                                    <button className="btn primeBtn">STOCK ORDER</button>
-                                    <a href="javascript:void(0)">ADD TO WISHLIST</a>
-                                </div>
-                            </li>
-                        </ul>
+                        {this._getProductList()}
                     </div>
                 </div>
             </div>

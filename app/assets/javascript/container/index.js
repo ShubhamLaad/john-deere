@@ -1,4 +1,5 @@
 import Header from '../components/common/header.js';
+import Footer from '../components/common/footer.js';
 
 const Container = React.createClass({
     render () {
@@ -6,6 +7,7 @@ const Container = React.createClass({
             <div>
                 <Header/>
                 {this.props.children}
+                <Footer/>
             </div>
         );
     },

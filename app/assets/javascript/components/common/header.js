@@ -27,7 +27,7 @@ class Header extends React.Component{
         return (
             <header>
                 <div className="container">
-                    <div className="topWrap clearfix">
+                    <div className="topWrap clearfix visible-lg visible-mde">
                         <ul>
                             <li>
                                 <a>English-INR</a>
@@ -41,7 +41,7 @@ class Header extends React.Component{
                                 </div>
                             </li>
                             <li>
-                                <a>Hi, Santosh Patil</a>
+                                <a>Hi, Lorem ipsum</a>
                             </li>
                         </ul>
                     </div>
@@ -70,7 +70,7 @@ class Header extends React.Component{
                                     <i className="menuIcon"></i>
                                 </a>
                                 <div className="subLinkList">
-                                    <a href="javascript:void(0)">fgdgdsg</a>
+                                    <a href="javascript:void(0)">sub products</a>
                                 </div>
                             </li>
                             <li>
@@ -79,7 +79,7 @@ class Header extends React.Component{
                                     <i className="menuIcon"></i>
                                 </a>
                                 <div className="subLinkList">
-                                    <a href="javascript:void(0)">fgdgdsg</a>
+                                    <a href="javascript:void(0)">sub products</a>
                                 </div>
                             </li>
                             <li>
@@ -88,7 +88,7 @@ class Header extends React.Component{
                                     <i className="menuIcon"></i>
                                 </a>
                                 <div className="subLinkList">
-                                    <a href="javascript:void(0)">fgdgdsg</a>
+                                    <a href="javascript:void(0)">sub products</a>
                                 </div>
                             </li>
                             <li>
@@ -97,7 +97,7 @@ class Header extends React.Component{
                                     <i className="menuIcon"></i>
                                 </a>
                                 <div className="subLinkList">
-                                    <a href="javascript:void(0)">fgdgdsg</a>
+                                    <a href="javascript:void(0)">sub products</a>
                                 </div>
                             </li>
                             <li>
@@ -106,7 +106,7 @@ class Header extends React.Component{
                                     <i className="menuIcon"></i>
                                 </a>
                                 <div className="subLinkList">
-                                    <a href="javascript:void(0)">fgdgdsg</a>
+                                    <a href="javascript:void(0)">sub products</a>
                                 </div>
                             </li>
                             <li>
@@ -115,7 +115,7 @@ class Header extends React.Component{
                                     <i className="menuIcon"></i>
                                 </a>
                                 <div className="subLinkList">
-                                    <a href="javascript:void(0)">fgdgdsg</a>
+                                    <a href="javascript:void(0)">sub products</a>
                                 </div>
                             </li>
                             <li>
@@ -124,7 +124,7 @@ class Header extends React.Component{
                                     <i className="menuIcon"></i>
                                 </a>
                                 <div className="subLinkList">
-                                    <a href="javascript:void(0)">fgdgdsg</a>
+                                    <a href="javascript:void(0)">sub products</a>
                                 </div>
                             </li>
                         </ul>
